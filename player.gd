@@ -4,21 +4,38 @@ signal hit
 
 @export var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
+var isColliding = false
+#var velocity = Vector2.ZERO # The player's movement vector.
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	#hide()
 
+
+	
+
 func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
+		while isColliding:
+			pass
+		velocity = Vector2.RIGHT #velocity.x += 1
+		
+		
+	elif Input.is_action_pressed("move_left"):
+		while isColliding:
+			pass
+		velocity = Vector2.LEFT #velocity.x -= 1
+
+	elif Input.is_action_pressed("move_down"):
+		while isColliding:
+			pass
+		velocity = Vector2.DOWN #velocity.y += 1
+
+	elif Input.is_action_pressed("move_up"):
+		while isColliding:
+			pass
+		velocity = Vector2.UP #velocity.y -= 1
+
 	move_and_slide()
 
 	if velocity.length() > 0:
@@ -58,3 +75,9 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
+
+func _on_area_2d_body_entered():
+	return (true)
+
+	
