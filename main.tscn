@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="Script" uid="uid://cljo0h54ukqrs" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c1twr2i6iwxt8" path="res://mob.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud.tscn" id="4_1bvp3"]
+
+[sub_resource type="Curve2D" id="Curve2D_7mycd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -208, -256, 0, 0, 0, 0, 1128, -320, 0, 0, 0, 0, 1264, 880, 0, 0, 0, 0, -224, 664, 0, 0, 0, 0, 712, 216, 0, 0, 0, 0, -624, -920, 0, 0, 0, 0, 1632, -1128, 0, 0, 0, 0, 1728, 1056, 0, 0, 0, 0, 952, 376, 0, 0, 0, 0, 256, 840, 0, 0, 0, 0, -384, 168, 0, 0, 0, 0, -384, 168, 0, 0, 0, 0, -168, -272, 0, 0, 0, 0, 1440, 96)
+}
+point_count = 14
+
+[node name="Main" type="Node"]
+script = ExtResource("1_h2yge")
+mob_scene = ExtResource("2_1bvp3")
+
+[node name="player" parent="." instance=ExtResource("3_lquwl")]
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(240, 240)
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_7mycd")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-208, -256)
+rotation = -0.0478676
+
+[node name="hud" parent="." instance=ExtResource("4_1bvp3")]
+
+[connection signal="hit" from="player" to="." method="game_over"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="start_game" from="hud" to="." method="new_game"]
