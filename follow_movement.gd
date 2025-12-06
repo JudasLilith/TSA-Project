@@ -1,5 +1,4 @@
 extends Node
-@onready var parent:CharacterBody2D = get_parent()
 
 var start_position
 
