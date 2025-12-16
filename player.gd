@@ -1,5 +1,5 @@
 
-extends Area2D
+extends CharacterBody2D
 signal hit
 
 @export var speed = 200 # How fast the player will move (pixels/sec).
@@ -19,6 +19,7 @@ func _process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
+	move_and_slide()
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
