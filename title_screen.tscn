@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2fqrjptlpuvc"]
+
+[ext_resource type="Script" uid="uid://cdapeuix7et0i" path="res://title_screen.gd" id="1_v6p8y"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_v6p8y")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 286.0
+offset_right = 260.0
+offset_bottom = 317.0
+text = "Start"
+
+[node name="AboutUsButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 221.0
+offset_right = 512.0
+offset_bottom = 252.0
+text = "AboutUS
+"
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 485.0
+offset_right = 458.0
+offset_bottom = 516.0
+text = "Quit
+"
+
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/AboutUsButton" to="." method="_on_about_us_button_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
