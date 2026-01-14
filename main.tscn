@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cqow47bch5ocs"]
+[gd_scene load_steps=11 format=4 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="Script" uid="uid://cljo0h54ukqrs" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c1twr2i6iwxt8" path="res://mob.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cvikc1cen6wki" path="res://art/Pac blood 2.png" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cttxjxji4hfc2" path="res://player2.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://84a8rprdv7tx" path="res://fade_transition.tscn" id="6_7mycd"]
 
 [sub_resource type="Curve2D" id="Curve2D_7mycd"]
 _data = {
@@ -122,6 +123,8 @@ physics_quadrant_size = 20
 [node name="player" parent="." instance=ExtResource("5_7mycd")]
 position = Vector2(402, 242)
 collision_mask = 3
+
+[node name="fade_transition" parent="." instance=ExtResource("6_7mycd")]
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

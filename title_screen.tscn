@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2fqrjptlpuvc"]
+[gd_scene load_steps=3 format=3 uid="uid://c2fqrjptlpuvc"]
 
 [ext_resource type="Script" uid="uid://cdapeuix7et0i" path="res://title_screen.gd" id="1_v6p8y"]
+[ext_resource type="PackedScene" uid="uid://84a8rprdv7tx" path="res://fade_transition.tscn" id="2_ak2if"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_v6p8y")
@@ -37,6 +38,12 @@ offset_bottom = 516.0
 text = "Quit
 "
 
+[node name="fade_transition" parent="." instance=ExtResource("2_ak2if")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="fade_transition"]
+
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/AboutUsButton" to="." method="_on_about_us_button_pressed"]
 [connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]

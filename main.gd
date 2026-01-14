@@ -18,7 +18,8 @@ func game_over():
 	$hud.show_game_over()
 
 func new_game():
-	score = 12
+	score = 0
+	$fade_transition/AnimationPlayer.play("fade_out")
 	$StartTimer.start()
 	$player.start($StartPosition.position)
 	$MobTimer.start()
