@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="New Game Project"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
 [input]
 
 move_right={
