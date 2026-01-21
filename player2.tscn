@@ -80,13 +80,17 @@ physics_interpolation_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_bhnal")
-debug_color = Color(0.39646423, 0.49184692, 0.93879336, 0.41960785)
+debug_color = Color(0.65902185, 0.5093474, 0.1818384, 0.41960785)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+self_modulate = Color(1, 0.105882354, 1, 1)
 collision_layer = 3
 collision_mask = 3
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_bhnal")
+freeze_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_8caby")
+debug_color = Color(0.25582945, 0.6255942, 0.32003745, 0.41960785)

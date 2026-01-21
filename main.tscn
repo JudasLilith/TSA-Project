@@ -21,6 +21,7 @@ size = Vector2(10, 799.5)
 friction = 0.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_272bh"]
+bounce = 0.01
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_272bh"]
 texture = ExtResource("4_272bh")
