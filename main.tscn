@@ -188,7 +188,6 @@ physics_quadrant_size = 20
 
 [node name="player" parent="." instance=ExtResource("5_7mycd")]
 position = Vector2(410, 332)
-motion_mode = 1
 
 [node name="fade_transition" parent="." instance=ExtResource("6_7mycd")]
 visible = false
