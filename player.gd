@@ -12,31 +12,26 @@ func _ready():
 	#hide()
 
 
-	
-
-func _process(delta):
+func  _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
-		while isColliding:
-			pass
 		velocity = Vector2.RIGHT #velocity.x += 1
 		
 		
 	elif Input.is_action_pressed("move_left"):
-		while isColliding:
-			pass
 		velocity = Vector2.LEFT #velocity.x -= 1
 
 	elif Input.is_action_pressed("move_down"):
-		while isColliding:
-			pass
 		velocity = Vector2.DOWN #velocity.y += 1
 
 	elif Input.is_action_pressed("move_up"):
-		while isColliding:
-			pass
 		velocity = Vector2.UP #velocity.y -= 1
 
 	move_and_slide()
+
+	
+
+func _process(delta):
+
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed

@@ -48,8 +48,8 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(398.00003, 401.00003)
-scale = Vector2(1.2531248, 1.2453125)
+position = Vector2(399.00003, 401.75)
+scale = Vector2(1.2562498, 1.2476561)
 texture = ExtResource("4_hafda")
 
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
