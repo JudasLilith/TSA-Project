@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cttxjxji4hfc2"]
+[gd_scene load_steps=11 format=3 uid="uid://cttxjxji4hfc2"]
 
 [ext_resource type="Script" uid="uid://cjvqm1qwpcrio" path="res://player.gd" id="1_bhnal"]
 [ext_resource type="Texture2D" uid="uid://dn67nofqxyhwt" path="res://art/playerGrey_up1.png" id="2_uqwy3"]
@@ -31,34 +31,62 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gy1f"]
-radius = 27.0
-height = 68.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqwy3"]
+custom_solver_bias = 0.1
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bhnal"]
-radius = 28.982283
+custom_solver_bias = 0.1
+radius = 15.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bhnal"]
+friction = 0.15
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8caby"]
+radius = 15.033297
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+disable_mode = 1
+collision_layer = 3
+collision_mask = 3
+collision_priority = 200.0
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_max_angle = 0.0
+floor_snap_length = 10.0
+platform_on_leave = 2
+platform_floor_layers = 4294967292
+platform_wall_layers = 2
+safe_margin = 8.0
 script = ExtResource("1_bhnal")
+speed = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.2685185, 0.2574074)
 sprite_frames = SubResource("SpriteFrames_fqpan")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.000001)
 scale = Vector2(0.95, 0.95)
-shape = SubResource("CapsuleShape2D_7gy1f")
+shape = SubResource("CircleShape2D_uqwy3")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 3
+collision_layer = 2
 collision_mask = 3
+collision_priority = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.265, -6.27)
+position = Vector2(1.9073486e-06, -3)
 scale = Vector2(0.95, 0.95)
 shape = SubResource("CircleShape2D_bhnal")
+debug_color = Color(0.39646423, 0.49184692, 0.93879336, 0.41960785)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_bhnal")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_8caby")

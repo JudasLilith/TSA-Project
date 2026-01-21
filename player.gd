@@ -2,7 +2,7 @@
 extends CharacterBody2D
 signal hit
 
-@export var speed = 200 # How fast the player will move (pixels/sec).
+@export var speed = 100 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 var isColliding = false
 #var velocity = Vector2.ZERO # The player's movement vector.
@@ -76,8 +76,8 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false
 
-
+'''
 func _on_area_2d_body_entered():
-	return (true)
+	pass
 
-	
+'''
