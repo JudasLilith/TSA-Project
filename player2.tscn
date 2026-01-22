@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cttxjxji4hfc2"]
+[gd_scene load_steps=7 format=3 uid="uid://cttxjxji4hfc2"]
 
 [ext_resource type="Script" uid="uid://cjvqm1qwpcrio" path="res://player.gd" id="1_bhnal"]
 [ext_resource type="Texture2D" uid="uid://dxe15smmlv1m5" path="res://art/Mobs - 1.png" id="2_tj0vx"]
@@ -38,18 +38,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqwy3"]
 custom_solver_bias = 1.0
-radius = 20.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bhnal"]
-custom_solver_bias = 1.0
-radius = 20.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bhnal"]
-friction = 0.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8caby"]
-custom_solver_bias = 1.0
-radius = 20.0
+radius = 16.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 disable_mode = 2
@@ -67,30 +56,11 @@ script = ExtResource("1_bhnal")
 speed = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.8980325, 1.822338)
+position = Vector2(1.1920929e-07, -5.9604645e-08)
+scale = Vector2(1.9990163, 1.911169)
 sprite_frames = SubResource("SpriteFrames_fqpan")
 animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uqwy3")
 debug_color = Color(0.7010959, 0, 0.14234406, 0.41960785)
-
-[node name="Area2D" type="Area2D" parent="."]
-physics_interpolation_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_bhnal")
-debug_color = Color(0.65902185, 0.5093474, 0.1818384, 0.41960785)
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-modulate = Color(1, 0, 1, 1)
-self_modulate = Color(1, 0.105882354, 1, 1)
-collision_layer = 3
-collision_mask = 3
-mass = 0.001
-physics_material_override = SubResource("PhysicsMaterial_bhnal")
-freeze_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_8caby")
-debug_color = Color(0.25582945, 0.6255942, 0.32003745, 0.41960785)
