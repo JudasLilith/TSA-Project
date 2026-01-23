@@ -29,6 +29,10 @@ project/assembly_name="New Game Project"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+Mobs=""
+
 [input]
 
 move_right={

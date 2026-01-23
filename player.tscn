@@ -40,7 +40,7 @@ animations = [{
 custom_solver_bias = 1.0
 radius = 16.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 disable_mode = 2
 collision_layer = 2
 collision_mask = 5
@@ -66,3 +66,5 @@ animation = &"up"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uqwy3")
 debug_color = Color(0.7010959, 0, 0.14234406, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="."]
