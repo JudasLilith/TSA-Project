@@ -5,6 +5,5 @@ extends Label
 func _process(_delta):
 	if timer.time_left > 0:
 		text = str(int(timer.time_left))
-		print(int(timer.time_left))
 	else:
 		text = "0"
