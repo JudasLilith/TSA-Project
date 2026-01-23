@@ -26,6 +26,7 @@ func new_game():
 	$MobTimer.start() # Since mob timer is same length as message timer
 	$hud.show_message("Get Ready")
 	await $"hud/MessageTimer".timeout
+	$"hud/ScoreLabel".show()
 	$ScoreTimer.start()
 
 func _on_mob_timer_timeout():
@@ -42,6 +43,3 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
-
-func _on_score_timer_timeout():
-	$"hud/Message".text = "0"

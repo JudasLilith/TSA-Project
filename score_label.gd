@@ -6,4 +6,4 @@ func _process(_delta):
 	if timer.time_left > 0:
 		text = str(int(timer.time_left))
 	else:
-		text = "5"
+		text = "0"
