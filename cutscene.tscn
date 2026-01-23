@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjebp8ov286ws"]
+
+[ext_resource type="Script" uid="uid://dws7c6xk2oi7p" path="res://node.gd" id="1_8ye5a"]
+[ext_resource type="Texture2D" uid="uid://wwclp5bdsya4" path="res://art/Cutscene 2.png" id="2_qcoa3"]
+[ext_resource type="Texture2D" uid="uid://bbrod2fiaiecu" path="res://art/Cutscene 4.png" id="3_pvbl2"]
+[ext_resource type="Texture2D" uid="uid://lh4xddvsa57v" path="res://art/Cutscene 6.png" id="4_vi1t0"]
+[ext_resource type="Texture2D" uid="uid://dmnirfgy0kbn5" path="res://art/Cutscene 8.png" id="5_1titf"]
+[ext_resource type="Texture2D" uid="uid://dovai4l1ums7y" path="res://art/Cutscene 10.png" id="6_ed5nn"]
+[ext_resource type="Texture2D" uid="uid://cia2i1mwi43bu" path="res://art/Cutscene 12.png" id="7_5gysb"]
+[ext_resource type="Texture2D" uid="uid://di5rxgmg80v7t" path="res://art/Cutscene 14.png" id="8_l2u6u"]
+[ext_resource type="Texture2D" uid="uid://dgofyhwieq5pp" path="res://art/Cutscenes 1,3,5,7,9,11,13,15,17.png" id="8_qcoa3"]
+[ext_resource type="Texture2D" uid="uid://46eyqx0e5wc8" path="res://art/Cutscene 16.png" id="9_pby01"]
+[ext_resource type="PackedScene" uid="uid://84a8rprdv7tx" path="res://fade_transition.tscn" id="11_pvbl2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jyjru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qcoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qcoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qcoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pvbl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qcoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vi1t0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qcoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1titf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qcoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ed5nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5gysb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qcoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l2u6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qcoa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pby01")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_8ye5a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(400, 400)
+sprite_frames = SubResource("SpriteFrames_jyjru")
+autoplay = "default"
+frame = 14
+frame_progress = 1.0
+speed_scale = 5.0
+
+[node name="fade_transition" parent="." instance=ExtResource("11_pvbl2")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="fade_transition"]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

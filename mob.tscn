@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1twr2i6iwxt8"]
+[gd_scene load_steps=10 format=3 uid="uid://c1twr2i6iwxt8"]
 
 [ext_resource type="Script" uid="uid://dfmab38ss1nil" path="res://mob.gd" id="1_1qmh0"]
 [ext_resource type="Texture2D" uid="uid://cenwbuy0o6fnq" path="res://art/enemyFlyingAlt_1.png" id="2_gfurk"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://brkcj7g1y8t38" path="res://art/enemySwimming_2.png" id="5_7ulmv"]
 [ext_resource type="Texture2D" uid="uid://c36wbp1i1f2t7" path="res://art/enemyWalking_1.png" id="6_pcqmr"]
 [ext_resource type="Texture2D" uid="uid://bwln2ohx75xeu" path="res://art/enemyWalking_2.png" id="7_jbnni"]
-[ext_resource type="Script" uid="uid://dle601l3wlfhk" path="res://follow_movement.gd" id="8_gfurk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yscv0"]
 animations = [{
@@ -50,7 +49,8 @@ radius = 36.0
 height = 102.0
 
 [node name="Mob" type="RigidBody2D"]
-collision_mask = 0
+collision_layer = 4
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource("1_1qmh0")
 metadata/_edit_group_ = true
@@ -66,6 +66,3 @@ scale = Vector2(0.9, 0.9)
 shape = SubResource("CapsuleShape2D_eqsov")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("8_gfurk")
