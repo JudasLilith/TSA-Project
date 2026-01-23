@@ -1,7 +1,6 @@
 extends RigidBody2D
 
-@export var player: CharacterBody2D
-@export var speed: float = 500.0  # Force applied to move
+var player: CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,10 +8,6 @@ func _ready():
 	$AnimatedSprite2D.animation = mob_types.pick_random()
 	$AnimatedSprite2D.play()
 	player = get_node("/root/Level1/player")
-	if player == null:
-		print("Error: player is null")
-	else:
-		print("Success: player found, path is ", player.get_path())
 	
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
@@ -25,4 +20,5 @@ func _physics_process(_delta: float) -> void:
 	if player:
 		look_at(player.global_position)
 		var direction = global_position.direction_to(player.global_position)
+		var speed = randf_range(50.0, 150.0)
 		apply_central_force(direction * speed)
