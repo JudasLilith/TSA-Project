@@ -18,20 +18,14 @@ func game_over():
 	$hud.show_game_over()
 
 func new_game():
-	score = 30
-	
 	$fade_transition.show()
 	$fade_transition/AnimationPlayer.play("fade_out")
-
-	$StartTimer.start()
+	
 	$player.start($StartPosition.position)
-	$MobTimer.start()
-	$ScoreTimer.start()
-	$hud.update_score(score)
 	$hud.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
-
-
+	$MobTimer.start()
+	$ScoreTimer.start()
 
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
@@ -47,15 +41,3 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
-
-
-func _on_score_timer_timeout():
-	score -= 1
-	$hud.update_score(score)
-	
-
-
-func _on_start_timer_timeout():
-	$StartTimer.start()
-	$MobTimer.start()
-	$ScoreTimer.start()
