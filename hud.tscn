@@ -15,9 +15,11 @@ offset_right = 136.5
 offset_bottom = 78.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 64
-text = "655321"
+text = "30"
+horizontal_alignment = 1
 
 [node name="Message" type="Label" parent="."]
 anchors_preset = 8
@@ -32,9 +34,10 @@ offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 64
-text = "Kill them all ;3"
+text = "Kill them all"
 horizontal_alignment = 1
 autowrap_mode = 2
 
