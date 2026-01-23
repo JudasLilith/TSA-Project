@@ -10,6 +10,7 @@ var isColliding = false
 func _ready():
 	screen_size = get_viewport_rect().size
 	#hide()
+	#print(self.get_path())
 
 
 func  _physics_process(delta):

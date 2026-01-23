@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1twr2i6iwxt8" path="res://mob.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://dj007g3l8y4hr" path="res://art/Pac blood 3.png" id="4_272bh"]
-[ext_resource type="PackedScene" uid="uid://cttxjxji4hfc2" path="res://player2.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cttxjxji4hfc2" path="res://player.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://84a8rprdv7tx" path="res://fade_transition.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bhuloeshyamp6" path="res://art/52631.png" id="7_272bh"]
 

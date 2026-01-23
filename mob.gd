@@ -8,7 +8,11 @@ func _ready():
 	var mob_types = Array($AnimatedSprite2D.sprite_frames.get_animation_names())
 	$AnimatedSprite2D.animation = mob_types.pick_random()
 	$AnimatedSprite2D.play()
-	player = get_tree().get_first_node_in_group("player2")
+	player = get_node("/root/Level1/player")
+	if player == null:
+		print("Error: player is null")
+	else:
+		print("Success: player found, path is ", player.get_path())
 	
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
