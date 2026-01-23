@@ -48,10 +48,12 @@ animations = [{
 radius = 36.0
 height = 102.0
 
-[node name="Mob" type="RigidBody2D" groups=["Mobs"]]
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 4
 collision_mask = 2
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_1qmh0")
 metadata/_edit_group_ = true
 

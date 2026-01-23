@@ -159,7 +159,7 @@ tile_map_data = PackedByteArray("AAAHABcAAAABAAAAAAAIABcAAAADAAAAAAAJABcAAAAEAAE
 tile_set = SubResource("TileSet_272bh")
 occlusion_enabled = false
 rendering_quadrant_size = 20
-collision_visibility_mode = 1
+collision_visibility_mode = 2
 physics_quadrant_size = 20
 navigation_visibility_mode = 1
 

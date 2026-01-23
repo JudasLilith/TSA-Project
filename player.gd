@@ -64,15 +64,14 @@ func _on_body_entered(_body):
 	hide() # Player disappears after being hit.
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.
-	$CollisionShape2D.set_deferred("disabled", true)
+	$WallDetector.set_deferred("disabled", true)
 	
 func start(pos):
 	position = pos
 	show()
-	$CollisionShape2D.disabled = false
+	$WallDetector.disabled = false
 
-'''
-func _on_area_2d_body_entered():
-	pass
-
-'''
+func _on_area_2d_body_entered(body: Node2D):
+	if body.is_in_group("mobs"):
+		print("Game Over!")
+		#get_tree().change_scene_to_file("res://GameOver.tscn")
