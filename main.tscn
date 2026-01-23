@@ -98,7 +98,7 @@ script = ExtResource("1_h2yge")
 mob_scene = ExtResource("2_1bvp3")
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 wait_time = 30.0

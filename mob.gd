@@ -20,5 +20,5 @@ func _physics_process(_delta: float) -> void:
 	if player:
 		look_at(player.global_position)
 		var direction = global_position.direction_to(player.global_position)
-		var speed = randf_range(50.0, 150.0)
+		var speed = randf_range(50.0, 100.0)
 		apply_central_force(direction * speed)
