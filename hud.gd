@@ -5,6 +5,7 @@ signal start_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	show()
 	$ScoreLabel.hide()
 	
 func show_message(text):
