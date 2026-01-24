@@ -14,28 +14,21 @@ func show_message(text):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func show_game_over():
-	show_message("Game Over")
-	# Wait until the MessageTimer has counted down.
-	await $MessageTimer.timeout
-	restart()
-	
-func show_game_end():
-	show_message("You Survived!")
-	await $MessageTimer.timeout
-	get_tree().change_scene_to_file("res://level_2.tscn")
-
-func restart():
-	$Message.text = "Survive from the Bacteria!"
+	$ScoreLabel.hide()
+	$Message.text = str("You got infected!")
 	$Message.show()
-	# Make a one-shot timer and wait for it to finish.
-	await get_tree().create_timer(1.0).timeout
+	# Wait until the MessageTimer has counted down.
+	$StartButton.text = "Try again"
 	$StartButton.show()
 	
-func update_score(score):
-	if score <= 0:
-		show_game_end()
-		return 
-	$ScoreLabel.text = str(score)
+func show_game_end():
+	$ScoreLabel.hide()
+	$Message.text = str("You survived!")
+	$Message.show()
+	# Wait until the MessageTimer has counted down.
+	$StartButton.text = "Next level"
+	$StartButton.show()
+	#get_tree().change_scene_to_file("res://level_2.tscn")
 	
 func _on_start_button_pressed():
 	$StartButton.hide()

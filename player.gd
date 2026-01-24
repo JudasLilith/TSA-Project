@@ -31,8 +31,6 @@ func  _physics_process(delta):
 	
 
 func _process(delta):
-
-
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
@@ -58,20 +56,17 @@ func _process(delta):
 		$AnimatedSprite2D.flip_h = true
 	else:
 		$AnimatedSprite2D.flip_h = false
-
-
-func _on_body_entered(_body):
-	hide() # Player disappears after being hit.
-	hit.emit()
-	# Must be deferred as we can't change physics properties on a physics callback.
-	$WallDetector.set_deferred("disabled", true)
 	
 func start(pos):
 	position = pos
+	velocity = Vector2.ZERO
 	show()
 	$WallDetector.disabled = false
 
 func _on_area_2d_body_entered(body: Node2D):
 	if body.is_in_group("mobs"):
-		print("Game Over!")
+		hide() # Player disappears after being hit
+		hit.emit()
+		$WallDetector.set_deferred("disabled", true) # Must be deferred as we can't change physics properties on a physics callback
+		$"/root/Level1".game_over()
 		#get_tree().change_scene_to_file("res://GameOver.tscn")

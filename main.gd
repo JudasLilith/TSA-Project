@@ -13,7 +13,8 @@ func _ready():
 #	pass
 	
 func game_over():
-	$ScoreTimer.stop()
+	get_tree().call_group("mobs", "queue_free")
+	$ScoreTimer.paused = true
 	$MobTimer.stop()
 	$hud.show_game_over()
 
@@ -24,10 +25,12 @@ func new_game():
 	$player.start($StartPosition.position)
 	get_tree().call_group("mobs", "queue_free")
 	$MobTimer.start() # Since mob timer is same length as message timer
+	$"hud/ScoreLabel".hide()
 	$hud.show_message("Get Ready")
 	await $"hud/MessageTimer".timeout
 	$"hud/ScoreLabel".show()
 	$ScoreTimer.start()
+	$ScoreTimer.paused = false
 
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
@@ -43,3 +46,8 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+	
+func _on_score_timer_timeout():
+	get_tree().call_group("mobs", "queue_free")
+	$MobTimer.stop()
+	$hud.show_game_end()
