@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjebp8ov286ws"]
+[gd_scene load_steps=13 format=3 uid="uid://cv1gvj1m6p0di"]
 
 [ext_resource type="Script" uid="uid://dws7c6xk2oi7p" path="res://node.gd" id="1_8ye5a"]
 [ext_resource type="Texture2D" uid="uid://wwclp5bdsya4" path="res://art/Cutscene 2.png" id="2_qcoa3"]
@@ -34,13 +34,7 @@ animations = [{
 "texture": ExtResource("4_vi1t0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_qcoa3")
-}, {
-"duration": 1.0,
 "texture": ExtResource("5_1titf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_qcoa3")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_ed5nn")
@@ -59,10 +53,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_pby01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qcoa3")
 }],
 "loop": false,
 "name": &"default",
-"speed": 0.5
+"speed": 0.25
 }]
 
 [node name="Node" type="Node"]
@@ -72,7 +69,7 @@ script = ExtResource("1_8ye5a")
 position = Vector2(400, 400)
 sprite_frames = SubResource("SpriteFrames_jyjru")
 autoplay = "default"
-frame = 14
+frame = 13
 frame_progress = 1.0
 speed_scale = 5.0
 
