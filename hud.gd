@@ -10,6 +10,7 @@ func _ready():
 	$Message.hide()
 	$StartButton.show()
 	$Sprite2D.show()
+	$"/root/Level1/player".input_enabled = false
 	
 func show_message(text):
 	$Message.text = str(text)
