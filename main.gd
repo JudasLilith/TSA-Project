@@ -25,6 +25,7 @@ func new_game():
 	$player.start($StartPosition.position)
 	get_tree().call_group("mobs", "queue_free")
 	$MobTimer.start() # Since mob timer is same length as message timer
+	$"hud/Sprite2D".hide()
 	$"hud/ScoreLabel".hide()
 	$hud.show_message("Get Ready")
 	await $"hud/MessageTimer".timeout
