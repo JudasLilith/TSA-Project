@@ -1,10 +1,12 @@
 extends CanvasLayer
+class_name hud
 
-# Defines signal (like var) to use later
+static var level
 signal start_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	level = get_tree().current_scene.scene_file_path.get_file().get_basename()
 	show()
 	$ScoreLabel.hide()
 	$Message.hide()
@@ -12,6 +14,8 @@ func _ready():
 	$StartButton.show()
 	$Sprite2D.show()
 	$"/root/Level/player".input_enabled = false
+	if level != "main":
+		start_game.emit()
 	
 func show_message(text):
 	$Message.text = str(text)
@@ -33,7 +37,6 @@ func show_game_end():
 	$NextButton.show()
 	
 func _on_start_button_pressed():
-	$StartButton.hide()
 	start_game.emit()
 
 func _on_message_timer_timeout():

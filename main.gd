@@ -1,14 +1,11 @@
 extends Node
-class_name main
 
 @export var mob_scene: PackedScene
-static var level
 var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	level = get_tree().current_scene.scene_file_path.get_file().get_basename()
-	print(level)
+	pass
 #
 #
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +34,7 @@ func create_mob():
 	add_child(mob)
 	
 func new_game():
+	$"hud/StartButton".hide()
 	$fade_transition.show()
 	$fade_transition/AnimationPlayer.play("fade_out")
 	
@@ -55,6 +53,7 @@ func new_game():
 	$ScoreTimer.paused = false
 	create_mob()
 	$MobTimer.start()
+	print(hud.level)
 
 func _on_mob_timer_timeout():
 	create_mob()
