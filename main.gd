@@ -18,24 +18,7 @@ func game_over():
 	$MobTimer.stop()
 	$hud.show_game_over()
 
-func new_game():
-	$fade_transition.show()
-	$fade_transition/AnimationPlayer.play("fade_out")
-	
-	$"/root/Level1/player".input_enabled = false
-	$player.start($StartPosition.position)
-	get_tree().call_group("mobs", "queue_free")
-	$MobTimer.start() # Since mob timer is same length as message timer
-	$"hud/Sprite2D".hide()
-	$"hud/ScoreLabel".hide()
-	$hud.show_message("Get Ready")
-	await $"hud/MessageTimer".timeout
-	$"/root/Level1/player".input_enabled = true
-	$"hud/ScoreLabel".show()
-	$ScoreTimer.start()
-	$ScoreTimer.paused = false
-
-func _on_mob_timer_timeout():
+func create_mob():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 
@@ -49,6 +32,27 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+	
+func new_game():
+	$fade_transition.show()
+	$fade_transition/AnimationPlayer.play("fade_out")
+	
+	$"/root/Level1/player".input_enabled = false
+	$player.start($StartPosition.position)
+	get_tree().call_group("mobs", "queue_free")
+	$"hud/Sprite2D".hide()
+	$"hud/ScoreLabel".hide()
+	$hud.show_message("Get Ready")
+	await $"hud/MessageTimer".timeout
+	$"/root/Level1/player".input_enabled = true
+	$"hud/ScoreLabel".show()
+	$ScoreTimer.start()
+	$ScoreTimer.paused = false
+	create_mob()
+	$MobTimer.start()
+
+func _on_mob_timer_timeout():
+	create_mob()
 	
 func _on_score_timer_timeout():
 	get_tree().call_group("mobs", "queue_free")
