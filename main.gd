@@ -1,11 +1,14 @@
 extends Node
+class_name main
 
 @export var mob_scene: PackedScene
+static var level
 var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	level = get_tree().current_scene.scene_file_path.get_file().get_basename()
+	print(level)
 #
 #
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,14 +40,16 @@ func new_game():
 	$fade_transition.show()
 	$fade_transition/AnimationPlayer.play("fade_out")
 	
-	$"/root/Level1/player".input_enabled = false
+	$"/root/Level/player".input_enabled = false
 	$player.start($StartPosition.position)
 	get_tree().call_group("mobs", "queue_free")
 	$"hud/Sprite2D".hide()
 	$"hud/ScoreLabel".hide()
+	$hud.show_message("Level 1 of 3")
+	await $"hud/MessageTimer".timeout
 	$hud.show_message("Get Ready")
 	await $"hud/MessageTimer".timeout
-	$"/root/Level1/player".input_enabled = true
+	$"/root/Level/player".input_enabled = true
 	$"hud/ScoreLabel".show()
 	$ScoreTimer.start()
 	$ScoreTimer.paused = false
@@ -57,5 +62,5 @@ func _on_mob_timer_timeout():
 func _on_score_timer_timeout():
 	get_tree().call_group("mobs", "queue_free")
 	$MobTimer.stop()
-	$"/root/Level1/player".input_enabled = false
+	$"/root/Level/player".input_enabled = false
 	$hud.show_game_end()

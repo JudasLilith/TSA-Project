@@ -11,7 +11,7 @@ func _ready():
 	#hide()
 
 
-func  _physics_process(delta):
+func  _physics_process(_delta):
 	if input_enabled:
 		if Input.is_action_pressed("move_right"):
 			velocity = Vector2.RIGHT #velocity.x += 1
@@ -64,9 +64,9 @@ func start(pos):
 
 func _on_area_2d_body_entered(body: Node2D):
 	if body.is_in_group("mobs"):
-		$"/root/Level1/player".input_enabled = false
+		$"/root/Level/player".input_enabled = false
 		hide() # Player disappears after being hit
 		hit.emit()
 		$WallDetector.set_deferred("disabled", true) # Must be deferred as we can't change physics properties on a physics callback
-		$"/root/Level1".game_over()
+		$"/root/Level".game_over()
 		#get_tree().change_scene_to_file("res://GameOver.tscn")
