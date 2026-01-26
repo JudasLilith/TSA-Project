@@ -70,7 +70,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="MessageTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
