@@ -20,16 +20,16 @@ func show_message(text):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func show_game_over():
 	$ScoreLabel.hide()
-	$Message.text = str("You got infected!\nTry again?")
-	$Message.show()
-	# Wait until the MessageTimer has counted down.
+	$Sprite2D.show()
+	$Sprite2D.texture = load("res://art/Msg-You Got Infected.png")
+	$StartButton.icon = load("res://art/Btn-Try Again.png")
 	$StartButton.show()
 	
 func show_game_end():
 	$ScoreLabel.hide()
-	$Message.text = str("You survived!\nNext level?")
-	$Message.show()
-	# Wait until the MessageTimer has counted down.
+	$Sprite2D.show()
+	$Sprite2D.texture = load("res://art/Msg-You Survived.png")
+	$StartButton.icon = load("res://art/Btn-Next Level.png")
 	$StartButton.show()
 	#get_tree().change_scene_to_file("res://level_2.tscn")
 	
