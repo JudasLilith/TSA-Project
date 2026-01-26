@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvewtmm6d837k"]
+[gd_scene load_steps=7 format=3 uid="uid://dvewtmm6d837k"]
 
 [ext_resource type="Script" uid="uid://cg8yakgevo7wv" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="FontFile" uid="uid://b53p8162s1mf7" path="res://fonts/Xolonium-Regular.ttf" id="2_8sq4i"]
 [ext_resource type="Script" uid="uid://dawj1wn68fjfo" path="res://score_label.gd" id="3_8sq4i"]
+[ext_resource type="FontFile" uid="uid://bso530obuhgbt" path="res://fonts/bodoni-72-smallcaps-book.ttf" id="4_1xsix"]
 [ext_resource type="Texture2D" uid="uid://td51ffw1l1l1" path="res://art/Start game button.png" id="4_640wx"]
 [ext_resource type="Texture2D" uid="uid://kj0ubd4x2ux4" path="res://art/Start game.png" id="5_a2258"]
 
@@ -21,7 +22,7 @@ offset_bottom = 128.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_fonts/font = ExtResource("4_1xsix")
 theme_override_font_sizes/font_size = 64
 text = "60"
 horizontal_alignment = 1
@@ -42,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_fonts/font = ExtResource("4_1xsix")
 theme_override_font_sizes/font_size = 64
 text = "Dodge the germs
 for 1 minute"
