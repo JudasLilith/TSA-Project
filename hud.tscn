@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvewtmm6d837k"]
+[gd_scene load_steps=9 format=3 uid="uid://dvewtmm6d837k"]
 
 [ext_resource type="Script" uid="uid://cg8yakgevo7wv" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="FontFile" uid="uid://b53p8162s1mf7" path="res://fonts/Xolonium-Regular.ttf" id="2_8sq4i"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://td51ffw1l1l1" path="res://art/Start game button.png" id="4_640wx"]
 [ext_resource type="Texture2D" uid="uid://kj0ubd4x2ux4" path="res://art/Start game.png" id="5_a2258"]
 [ext_resource type="Texture2D" uid="uid://bbsvxu5rci8q1" path="res://art/Btn-Next Level.png" id="7_rftc2"]
+[ext_resource type="Texture2D" uid="uid://bdc0hmefidn7v" path="res://art/Pac blood - Group 2.png" id="8_g10ll"]
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
@@ -51,6 +52,52 @@ for 1 minute"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="NextButton" type="Button" parent="."]
+visible = false
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -250.0
+offset_right = 100.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 60
+icon = ExtResource("7_rftc2")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="RestartButton" type="Button" parent="."]
+visible = false
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -250.0
+offset_right = 100.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 60
+icon = ExtResource("8_g10ll")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="StartButton" type="Button" parent="."]
 z_index = 1
 anchors_preset = 7
@@ -71,49 +118,28 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="MessageTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(400, 400)
 texture = ExtResource("5_a2258")
 
-[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+[node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -800.0
-offset_top = -800.0
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0.50980395)
 
-[node name="NextButton" type="Button" parent="."]
-z_index = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -250.0
-offset_right = 100.0
-offset_bottom = -150.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_8sq4i")
-theme_override_font_sizes/font_size = 60
-icon = ExtResource("7_rftc2")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

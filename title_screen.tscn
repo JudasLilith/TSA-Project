@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2fqrjptlpuvc"]
+[gd_scene load_steps=5 format=3 uid="uid://c2fqrjptlpuvc"]
 
 [ext_resource type="Script" uid="uid://cdapeuix7et0i" path="res://title_screen.gd" id="1_v6p8y"]
 [ext_resource type="PackedScene" uid="uid://84a8rprdv7tx" path="res://fade_transition.tscn" id="2_ak2if"]
 [ext_resource type="Texture2D" uid="uid://bdc0hmefidn7v" path="res://art/Pac blood - Group 2.png" id="2_tpml5"]
-[ext_resource type="Texture2D" uid="uid://mdowjjwpsv74" path="res://art/Pac blood - Group 4.png" id="4_013yr"]
 [ext_resource type="Texture2D" uid="uid://c5sjnrse3n3ib" path="res://art/Pac blood 6.png" id="4_hafda"]
 
 [node name="TitleScreen" type="Node2D"]
@@ -24,14 +23,6 @@ offset_bottom = 694.0
 icon = ExtResource("2_tpml5")
 flat = true
 
-[node name="QuitButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 319.0
-offset_top = 692.0
-offset_right = 487.0
-offset_bottom = 760.0
-icon = ExtResource("4_013yr")
-
 [node name="fade_transition" parent="." instance=ExtResource("2_ak2if")]
 visible = false
 
@@ -44,5 +35,4 @@ scale = Vector2(1.2562498, 1.2476561)
 texture = ExtResource("4_hafda")
 
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="timeout" from="fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]

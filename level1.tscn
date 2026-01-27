@@ -1,14 +1,13 @@
-[gd_scene load_steps=18 format=4 uid="uid://cqow47bch5ocs"]
+[gd_scene load_steps=17 format=4 uid="uid://cqow47bch5ocs"]
 
-[ext_resource type="Script" uid="uid://cljo0h54ukqrs" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c1twr2i6iwxt8" path="res://mob.tscn" id="2_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud.tscn" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://dj007g3l8y4hr" path="res://art/Pac blood 3.png" id="4_272bh"]
-[ext_resource type="Texture2D" uid="uid://dqnsngwu2u8no" path="res://art/Mobs - Layer 4.png" id="5_5vw27"]
-[ext_resource type="PackedScene" uid="uid://cttxjxji4hfc2" path="res://player.tscn" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://84a8rprdv7tx" path="res://fade_transition.tscn" id="6_7mycd"]
-[ext_resource type="Texture2D" uid="uid://ct56710sd0ea6" path="res://art/Mobs.png" id="6_kek77"]
-[ext_resource type="Texture2D" uid="uid://bhuloeshyamp6" path="res://art/52631.png" id="7_272bh"]
+[ext_resource type="Script" uid="uid://cljo0h54ukqrs" path="res://main.gd" id="1_usj0q"]
+[ext_resource type="PackedScene" uid="uid://c1twr2i6iwxt8" path="res://mob.tscn" id="2_5j5gb"]
+[ext_resource type="PackedScene" uid="uid://dvewtmm6d837k" path="res://hud.tscn" id="3_mx85b"]
+[ext_resource type="Texture2D" uid="uid://dj007g3l8y4hr" path="res://art/Pac blood 3.png" id="4_hx44q"]
+[ext_resource type="Texture2D" uid="uid://dqnsngwu2u8no" path="res://art/Mobs - Layer 4.png" id="5_n8vhr"]
+[ext_resource type="Texture2D" uid="uid://ct56710sd0ea6" path="res://art/Mobs.png" id="6_eqrsh"]
+[ext_resource type="PackedScene" uid="uid://cttxjxji4hfc2" path="res://player.tscn" id="7_3l65w"]
+[ext_resource type="PackedScene" uid="uid://84a8rprdv7tx" path="res://fade_transition.tscn" id="8_rjtee"]
 
 [sub_resource type="Curve2D" id="Curve2D_7mycd"]
 _data = {
@@ -26,7 +25,7 @@ friction = 0.0
 bounce = 0.01
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_272bh"]
-texture = ExtResource("4_272bh")
+texture = ExtResource("4_hx44q")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 1:0/0 = 0
@@ -89,12 +88,12 @@ texture_region_size = Vector2i(20, 20)
 4:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
-texture = ExtResource("5_5vw27")
+texture = ExtResource("5_n8vhr")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
-texture = ExtResource("6_kek77")
+texture = ExtResource("6_eqrsh")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 
@@ -108,14 +107,14 @@ sources/1 = SubResource("TileSetAtlasSource_kek77")
 sources/3 = SubResource("TileSetAtlasSource_4c57u")
 
 [node name="Level" type="Node"]
-script = ExtResource("1_h2yge")
-mob_scene = ExtResource("2_1bvp3")
+script = ExtResource("1_usj0q")
+mob_scene = ExtResource("2_5j5gb")
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 5.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 60.0
 one_shot = true
 
 [node name="StartTimer" type="Timer" parent="."]
@@ -132,7 +131,7 @@ curve = SubResource("Curve2D_7mycd")
 position = Vector2(103, 55)
 rotation = 1.58229
 
-[node name="hud" parent="." instance=ExtResource("4_1bvp3")]
+[node name="hud" parent="." instance=ExtResource("3_mx85b")]
 unique_name_in_owner = true
 visible = false
 
@@ -179,7 +178,7 @@ collision_visibility_mode = 2
 physics_quadrant_size = 20
 navigation_visibility_mode = 1
 
-[node name="player" parent="." instance=ExtResource("5_7mycd")]
+[node name="player" parent="." instance=ExtResource("7_3l65w")]
 position = Vector2(410, 288)
 input_pickable = true
 platform_floor_layers = 4294967040
@@ -187,16 +186,8 @@ platform_wall_layers = 0
 safe_margin = 5.0
 speed = 100
 
-[node name="fade_transition" parent="." instance=ExtResource("6_7mycd")]
+[node name="fade_transition" parent="." instance=ExtResource("8_rjtee")]
 visible = false
-
-[node name="52631" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.18039216)
-z_index = 3
-position = Vector2(325.99988, 322)
-scale = Vector2(2.5403225, 2.5403225)
-texture = ExtResource("7_272bh")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

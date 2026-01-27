@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b31mlwmfm0hpl"]
+[gd_scene load_steps=17 format=4 uid="uid://b31mlwmfm0hpl"]
 
 [ext_resource type="Script" uid="uid://cljo0h54ukqrs" path="res://main.gd" id="1_8x87a"]
 [ext_resource type="PackedScene" uid="uid://c1twr2i6iwxt8" path="res://mob.tscn" id="2_ci4mn"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ct56710sd0ea6" path="res://art/Mobs.png" id="6_siwpi"]
 [ext_resource type="PackedScene" uid="uid://cttxjxji4hfc2" path="res://player.tscn" id="7_0m7xm"]
 [ext_resource type="PackedScene" uid="uid://84a8rprdv7tx" path="res://fade_transition.tscn" id="8_qoi87"]
-[ext_resource type="Texture2D" uid="uid://bhuloeshyamp6" path="res://art/52631.png" id="9_i6w5t"]
 
 [sub_resource type="Curve2D" id="Curve2D_7mycd"]
 _data = {
@@ -115,7 +114,7 @@ mob_scene = ExtResource("2_ci4mn")
 wait_time = 5.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 60.0
 one_shot = true
 
 [node name="StartTimer" type="Timer" parent="."]
@@ -189,14 +188,6 @@ speed = 100
 
 [node name="fade_transition" parent="." instance=ExtResource("8_qoi87")]
 visible = false
-
-[node name="52631" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.18039216)
-z_index = 3
-position = Vector2(325.99988, 322)
-scale = Vector2(2.5403225, 2.5403225)
-texture = ExtResource("9_i6w5t")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
