@@ -117,10 +117,6 @@ wait_time = 5.0
 wait_time = 60.0
 one_shot = true
 
-[node name="StartTimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(410, 288)
 
@@ -191,5 +187,4 @@ visible = false
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="start_game" from="hud" to="." method="new_game"]

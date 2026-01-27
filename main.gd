@@ -13,18 +13,11 @@ func game_over():
 	$hud.show_game_over()
 
 func create_mob():
-	# Create a new instance of the Mob scene
 	var mob = mob_scene.instantiate()
-
-	# Choose a random location on Path2D
 	var mob_spawn_location = $MobPath/MobSpawnLocation
-	mob_spawn_location.progress_ratio = randf()
-
-	# Set the mob's position to the random location, but reset rotation to 0 so it faces forward
-	mob.global_position = mob_spawn_location.global_position
-	mob.rotation = 0 
-
-	# Spawn the mob by adding it to the Main scene
+	mob_spawn_location.progress_ratio = randf() # Choose a random location on Path2D
+	mob.global_position = mob_spawn_location.global_position # Set the mob's position to the random location
+	mob.rotation = 0 # Reset rotation to 0 so it faces forward
 	add_child(mob)
 	
 func new_game():

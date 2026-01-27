@@ -2,8 +2,8 @@
 extends CharacterBody2D
 signal hit
 
-@export var speed = 100 # How fast the player will move (pixels/sec)
-var screen_size # Size of the game window
+@export var speed = 100 # Pixels/sec
+var screen_size # Size of game window
 var input_enabled = true
 
 func _ready():
@@ -12,13 +12,13 @@ func _ready():
 func  _physics_process(_delta):
 	if input_enabled:
 		if Input.is_action_pressed("move_right"):
-			velocity = Vector2.RIGHT #velocity.x += 1
+			velocity = Vector2.RIGHT # velocity.x += 1
 		elif Input.is_action_pressed("move_left"):
-			velocity = Vector2.LEFT #velocity.x -= 1
+			velocity = Vector2.LEFT # velocity.x -= 1
 		elif Input.is_action_pressed("move_down"):
-			velocity = Vector2.DOWN #velocity.y += 1
+			velocity = Vector2.DOWN # velocity.y += 1
 		elif Input.is_action_pressed("move_up"):
-			velocity = Vector2.UP #velocity.y -= 1
+			velocity = Vector2.UP # velocity.y -= 1
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
