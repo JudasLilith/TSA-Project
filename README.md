@@ -1,6 +1,6 @@
 # TSA-Project
 
-![alt text]("https://github.com/JudasLilith/TSA-Project/art/Pac blood 6.png")
+![alt text](https://github.com/JudasLilith/TSA-Project/art/Pac_blood_6.png)
 
 
 A pacman-inspired 2D game made by Godot 4!
