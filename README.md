@@ -1,5 +1,8 @@
 # TSA-Project
 
+![alt text](https://github.com/JudasLilith/TSA-Project/art/Pac blood 6.png)
+
+
 A pacman-inspired 2D game made by Godot 4!
 As a simple cell in a body, survive bacterias and win!
 
