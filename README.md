@@ -6,7 +6,7 @@ As a simple cell in a body, survive 3 rounds from nasty bacterias and win!
 **Credits:**
 
 Programming:
- Adrianna Zambrano
+ Adrianna Zambrano,
  JudasLilith
 
 Graphic Design:
