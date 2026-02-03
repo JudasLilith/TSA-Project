@@ -3,10 +3,10 @@
 A pacman-inspired 2D game made by Godot 4!
 As a simple cell in a body, survive 3 rounds from nasty bacterias and win!
 
-#Credits
+**Credits**
 Programming:
- Adrianna
+ Adrianna Zambrano
  JudasLilith
 
 Graphic Design:
-S
+Shuyanlol
