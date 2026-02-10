@@ -18,6 +18,6 @@
 
 ## Credits
 
-**Programming**: JudasLilith, Adrianna Zambrano
+**Programming**: JudasLilith, Adriana Zambrano
 
 **Graphic Design**: Shuyanlol
