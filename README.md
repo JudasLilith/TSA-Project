@@ -20,7 +20,7 @@
 
 ### Prerequisites
 
-Godot 4.x (made with 4.5)
+[Godot](https://godotengine.org) 4.x (made with 4.5)
 
 ### How to Run
 
