@@ -43,3 +43,7 @@ Godot 4.x (made with 4.5)
 **Programming**: JudasLilith, Adriana Zambrano
 
 **Graphic Design**: Shuyanlol
+
+## Repositories
+- [Code](https://github.com/JudasLilith/TSA-Project) behind the game (this repository)
+- [Website](https://github.com/pac-blood/pac-blood.github.io) for deploying the web-based game
